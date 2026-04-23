@@ -2,6 +2,7 @@ import * as React from 'react';
 import { ImageWithFallback } from './components/figma/ImageWithFallback';
 
 const portfolioAlbumUrl = 'https://www.artstation.com/caisantos/albums/14969340';
+const pierInstagramUrl = 'https://www.instagram.com/pierstudiocriativo/';
 
 const projects = [
     {
@@ -23,7 +24,6 @@ const projects = [
             'Experiência adaptada para totem físico',
             'Controle DualSense e navegação gamificada',
         ],
-        pageTone: 'warm',
     },
     {
         id: 'gc-engenharia',
@@ -44,7 +44,6 @@ const projects = [
             'VR e streaming via nuvem/web',
             'Apoio à decisão antes da execução',
         ],
-        pageTone: 'light',
     },
     {
         id: 'construpoli',
@@ -73,7 +72,6 @@ const projects = [
             'Controle de iluminação em tempo real',
             'Variações de mobiliário e materiais',
         ],
-        pageTone: 'blue',
     },
     {
         id: 'mexhibit',
@@ -94,7 +92,6 @@ const projects = [
             'Navegação rápida e intuitiva',
             'Visualização estratégica de estandes',
         ],
-        pageTone: 'warm',
     },
     {
         id: 'stein',
@@ -115,7 +112,6 @@ const projects = [
             'Troca de pintura, materiais e mobiliário',
             'Animações funcionais e ergonomia',
         ],
-        pageTone: 'light',
     },
 ];
 
@@ -132,7 +128,7 @@ function ProjectCarousel({ images, title }: { images: string[]; title: string })
     };
 
     return (
-        <div className="relative h-full w-full overflow-hidden rounded-[30px] bg-[#111]/5 shadow-[0_18px_60px_rgba(0,0,0,0.10)]">
+        <div className="relative h-[300px] overflow-hidden rounded-[26px] bg-[#111]/5 shadow-[0_18px_50px_rgba(0,0,0,0.12)] sm:h-[420px] lg:h-[560px]">
             <ImageWithFallback
                 key={images[current]}
                 src={images[current]}
@@ -145,7 +141,7 @@ function ProjectCarousel({ images, title }: { images: string[]; title: string })
                     <button
                         type="button"
                         onClick={previous}
-                        className="absolute left-5 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/85 text-[#6D99AF] shadow-[0_8px_22px_rgba(0,0,0,0.12)] transition-all duration-300 hover:bg-white hover:scale-105"
+                        className="absolute left-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-2xl text-[#6D99AF] shadow-[0_8px_22px_rgba(0,0,0,0.14)] transition-all duration-300 hover:bg-white hover:scale-105 sm:left-5 sm:h-12 sm:w-12"
                         aria-label="Imagem anterior"
                     >
                         ‹
@@ -154,19 +150,19 @@ function ProjectCarousel({ images, title }: { images: string[]; title: string })
                     <button
                         type="button"
                         onClick={next}
-                        className="absolute right-5 top-1/2 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/85 text-[#6D99AF] shadow-[0_8px_22px_rgba(0,0,0,0.12)] transition-all duration-300 hover:bg-white hover:scale-105"
+                        className="absolute right-3 top-1/2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-2xl text-[#6D99AF] shadow-[0_8px_22px_rgba(0,0,0,0.14)] transition-all duration-300 hover:bg-white hover:scale-105 sm:right-5 sm:h-12 sm:w-12"
                         aria-label="Próxima imagem"
                     >
                         ›
                     </button>
 
-                    <div className="absolute bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full bg-white/85 px-4 py-2 shadow-[0_8px_22px_rgba(0,0,0,0.10)]">
+                    <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 items-center gap-2 rounded-full bg-white/88 px-4 py-2 shadow-[0_8px_22px_rgba(0,0,0,0.10)]">
                         {images.map((image, index) => (
                             <button
                                 key={image}
                                 type="button"
                                 onClick={() => setCurrent(index)}
-                                className={`h-2.5 w-2.5 rounded-full transition-all duration-300 ${index === current ? 'bg-[#7FA8BC] w-6' : 'bg-[#7FA8BC]/35'
+                                className={`h-2.5 rounded-full transition-all duration-300 ${index === current ? 'w-7 bg-[#7FA8BC]' : 'w-2.5 bg-[#7FA8BC]/35'
                                     }`}
                                 aria-label={`Ir para imagem ${index + 1}`}
                             />
@@ -176,7 +172,7 @@ function ProjectCarousel({ images, title }: { images: string[]; title: string })
             )}
 
             <div
-                className="absolute right-5 top-5 rounded-full bg-white/88 px-4 py-2 text-xs uppercase tracking-[0.18em] text-[#6D99AF] shadow-[0_8px_22px_rgba(0,0,0,0.10)]"
+                className="absolute right-4 top-4 rounded-full bg-white/90 px-4 py-2 text-[0.68rem] uppercase tracking-[0.18em] text-[#6D99AF] shadow-[0_8px_22px_rgba(0,0,0,0.10)]"
                 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
             >
                 {current + 1} / {images.length}
@@ -185,36 +181,70 @@ function ProjectCarousel({ images, title }: { images: string[]; title: string })
     );
 }
 
+function Header() {
+    return (
+        <header className="fixed left-0 right-0 top-0 z-50 border-b border-white/20 bg-[#7FA8BC]/85 backdrop-blur-xl">
+            <div className="mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-8">
+                <a href="#topo" className="flex items-center gap-3">
+                    <img src="/logopier.png?v=5" alt="Pier" className="h-9 w-auto" />
+                    <span
+                        className="hidden text-xs uppercase tracking-[0.25em] text-white/80 sm:block"
+                        style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
+                    >
+                        Portfólio 3D
+                    </span>
+                </a>
+
+                <nav className="hidden items-center gap-7 lg:flex">
+                    <a href="#sobre" className="text-sm text-white/88 transition hover:text-white">
+                        Sobre
+                    </a>
+                    <a href="#projetos" className="text-sm text-white/88 transition hover:text-white">
+                        Projetos
+                    </a>
+                    <a href="#diferenciais" className="text-sm text-white/88 transition hover:text-white">
+                        Diferenciais
+                    </a>
+                    <a href="#contato" className="text-sm text-white/88 transition hover:text-white">
+                        Contato
+                    </a>
+                </nav>
+
+                <a
+                    href={pierInstagramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-white px-4 py-2 text-xs uppercase tracking-[0.16em] text-[#6D99AF] shadow-[0_8px_20px_rgba(0,0,0,0.10)] transition hover:-translate-y-[1px]"
+                    style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
+                >
+                    Pier ↗
+                </a>
+            </div>
+        </header>
+    );
+}
+
 export default function App() {
     return (
-        <div className="bg-[#ECE7DF] print:bg-white">
-            {/* CAPA */}
-            <section className="relative min-h-[297mm] w-[210mm] mx-auto overflow-hidden break-after-page print:break-after-page bg-[#7FA8BC]">
-                <div className="absolute top-0 right-0 h-full w-[32%] bg-[#EDE6DA]" />
-                <div className="absolute bottom-0 left-0 h-[28%] w-[42%] bg-[#D9CFC0]/45 rounded-tr-[48px]" />
+        <div id="topo" className="min-h-screen overflow-x-hidden bg-[#ECE7DF] text-[#222]">
+            <Header />
 
-                <div
-                    className="absolute top-8 left-10 text-[0.78rem] uppercase tracking-[0.45em] text-white/85"
-                    style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
-                >
-                    Portfólio 3D
-                </div>
+            {/* HERO */}
+            <section className="relative flex min-h-screen items-center overflow-hidden bg-[#7FA8BC] px-5 pt-24 sm:px-8 lg:px-14">
+                <div className="absolute right-0 top-0 hidden h-full w-[28%] bg-[#EDE6DA] md:block" />
+                <div className="absolute bottom-0 left-0 h-[24%] w-[55%] rounded-tr-[54px] bg-[#D9CFC0]/45 sm:w-[38%]" />
 
-                <div
-                    className="absolute right-6 top-1/2 -translate-y-1/2 rotate-180 text-[0.72rem] uppercase tracking-[0.4em] text-[#7B8790]"
-                    style={{
-                        fontFamily: 'Inter, sans-serif',
-                        writingMode: 'vertical-rl',
-                        fontWeight: 500,
-                    }}
-                >
-                    Pier Studio Criativo
-                </div>
+                <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-14 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+                    <div>
+                        <div
+                            className="mb-7 text-xs uppercase tracking-[0.45em] text-white/80"
+                            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
+                        >
+                            Portfólio 3D
+                        </div>
 
-                <div className="relative z-10 flex min-h-[297mm] flex-col justify-between px-14 py-16">
-                    <div className="max-w-[540px] pt-8">
                         <h1
-                            className="text-[4.5rem] leading-[0.94] text-white"
+                            className="max-w-4xl text-[4rem] leading-[0.92] text-white sm:text-[5.8rem] lg:text-[7rem]"
                             style={{ fontFamily: 'Crimson Text, serif', fontWeight: 600 }}
                         >
                             Experiências
@@ -224,78 +254,69 @@ export default function App() {
                             imersivas
                         </h1>
 
-                        <div className="mt-10 h-px w-24 bg-white/45" />
+                        <div className="mt-9 h-px w-24 bg-white/45" />
 
                         <p
-                            className="mt-10 max-w-[470px] text-[1.18rem] leading-[1.8] text-white/90"
+                            className="mt-9 max-w-2xl text-lg leading-[1.85] text-white/90 sm:text-xl"
                             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300 }}
                         >
-                            Apresentação de projetos, produtos e espaços com linguagem visual
-                            sofisticada, imersiva e estratégica.
+                            Apresentação de projetos, produtos e espaços com linguagem visual sofisticada,
+                            imersiva e estratégica.
                         </p>
+
+                        <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                            <a
+                                href="#projetos"
+                                className="rounded-full bg-white px-7 py-4 text-center text-sm uppercase tracking-[0.17em] text-[#6D99AF] shadow-[0_16px_34px_rgba(0,0,0,0.12)] transition hover:-translate-y-[2px]"
+                                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
+                            >
+                                Ver projetos
+                            </a>
+                            <a
+                                href={portfolioAlbumUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="rounded-full border border-white/45 px-7 py-4 text-center text-sm uppercase tracking-[0.17em] text-white transition hover:bg-white/12"
+                                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
+                            >
+                                ArtStation ↗
+                            </a>
+                        </div>
                     </div>
 
-                    <div className="absolute right-[420px] top-1/2 -translate-y-1/2 flex flex-col items-center text-center">
-                        <a
-                            href="https://www.instagram.com/pierstudiocriativo/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-block transition-transform duration-300 hover:scale-[1.03]"
-                        >
-                            <img
-                                src="/logopier.png"
-                                alt="Pier"
-                                className="relative left-[5px] top-[50px] w-[180px]"
-                            />
+                    <div className="relative mx-auto flex w-full max-w-[520px] flex-col items-center text-center lg:mt-10">
+                        <a href={pierInstagramUrl} target="_blank" rel="noopener noreferrer" className="transition hover:scale-[1.03]">
+                            <img src="/logopier.png?v=5" alt="Pier" className="mx-auto w-[210px] sm:w-[260px]" />
                         </a>
 
                         <div
-                            className="mt-2 text-[1.25rem] leading-none text-white/85"
+                            className="mt-5 text-[1.35rem] leading-none text-white/85"
                             style={{ fontFamily: 'Crimson Text, serif', fontWeight: 600 }}
                         >
                             ×
                         </div>
 
                         <div
-                            className="mt-1 text-[2.1rem] leading-none text-white -ml-2"
+                            className="mt-2 text-[2.4rem] leading-none text-white sm:text-[3rem]"
                             style={{ fontFamily: 'Crimson Text, serif', fontWeight: 600 }}
                         >
                             Caique Santos
                         </div>
 
                         <div
-                            className="mt-3 text-[0.75rem] uppercase tracking-[0.38em] text-white/80 ml-1"
-                            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
+                            className="mt-4 text-xs uppercase tracking-[0.45em] text-white/80"
+                            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
                         >
                             Modelagem 3D
-                        </div>
-                    </div>
-
-                    <div className="flex items-end justify-between">
-                        <div
-                            className="text-[0.72rem] uppercase tracking-[0.38em] text-white/75"
-                            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
-                        >
-                            Pier × Caique Santos
-                        </div>
-
-                        <div
-                            className="rounded-full bg-white/14 px-5 py-2 text-[0.78rem] uppercase tracking-[0.24em] text-white backdrop-blur-sm"
-                            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
-                        >
-                            Portfólio Selecionado
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* SOBRE + ATUAÇÃO (UNIFICADO) */}
-            <section className="relative min-h-[297mm] w-[210mm] mx-auto overflow-hidden break-after-page print:break-after-page bg-[#F4F0E8]">
-
-                <div className="grid h-full grid-cols-[1.1fr_0.9fr] items-center gap-10 px-10 py-10">
-
-                    {/* IMAGEM */}
-                    <div className="relative h-full overflow-hidden rounded-[34px]">
+            {/* SOBRE */}
+            <section id="sobre" className="relative bg-[#F4F0E8] px-5 py-20 sm:px-8 lg:px-14 lg:py-28">
+                <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch">
+                    <div className="relative min-h-[420px] overflow-hidden rounded-[34px] lg:min-h-[720px]">
                         <ImageWithFallback
                             src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80"
                             alt="Ambiente de criação"
@@ -303,215 +324,158 @@ export default function App() {
                         />
                     </div>
 
-                    {/* CONTEÚDO */}
-                    <div className="rounded-[34px] bg-white px-10 py-12 shadow-[0_18px_50px_rgba(0,0,0,0.08)]">
-
+                    <div className="flex flex-col justify-center rounded-[34px] bg-white px-7 py-10 shadow-[0_18px_50px_rgba(0,0,0,0.08)] sm:px-12 lg:px-16">
                         <div
-                            className="mb-5 text-sm uppercase tracking-[0.35em] text-[#7FA8BC]"
-                            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
+                            className="mb-5 text-xs uppercase tracking-[0.35em] text-[#7FA8BC]"
+                            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
                         >
                             Sobre a colaboração
                         </div>
 
                         <h2
-                            className="mb-6 text-[2.8rem] leading-[1.05] text-[#222]"
+                            className="max-w-2xl text-[3rem] leading-[1] text-[#222] sm:text-[4.5rem]"
                             style={{ fontFamily: 'Crimson Text, serif', fontWeight: 600 }}
                         >
-                            Experiências visuais imersivas.
+                            Estratégia, estética e experiência.
                         </h2>
 
                         <div
-                            className="space-y-4 text-[1rem] leading-[1.75] text-[#555]"
+                            className="mt-8 grid gap-5 text-base leading-[1.85] text-[#555] sm:text-lg"
                             style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300 }}
                         >
                             <p>
                                 A Pier é um estúdio de criação estratégica focado em desenvolver experiências
                                 visuais que fortalecem a comunicação de marcas e projetos.
                             </p>
-
                             <p>
                                 Em colaboração com <strong style={{ fontWeight: 600 }}>Caique Santos</strong>,
                                 especialista em modelagem 3D e experiências interativas, desenvolvemos soluções
                                 que combinam estética, tecnologia e estratégia.
                             </p>
-
                             <p>
-                                Essa parceria permite transformar projetos em experiências digitais que facilitam a
-                                compreensão, aumentam o engajamento e potencializam a tomada de decisão.
+                                Essa parceria transforma projetos em experiências digitais que facilitam a compreensão,
+                                aumentam o engajamento e potencializam a tomada de decisão.
                             </p>
                         </div>
 
-                        {/* PILLS */}
-                        <div className="mt-8 flex flex-col gap-3">
-                            {[
-                                'Realidade virtual',
-                                'Tours interativos',
-                                'Apresentação de produtos',
-                                'Arquitetura e espaços',
-                            ].map((text, index) => (
+                        <div className="mt-9 grid gap-3 sm:grid-cols-2">
+                            {['Realidade virtual', 'Tours interativos', 'Apresentação de produtos', 'Arquitetura e espaços'].map((text) => (
                                 <div
-                                    key={index}
-                                    className="w-full rounded-full bg-[#7FA8BC]/80 px-5 py-2.5 text-white text-center transition-all duration-300 hover:bg-[#7FA8BC]"
-                                    style={{
-                                        fontFamily: 'Inter, sans-serif',
-                                        fontWeight: 500,
-                                        fontSize: '0.82rem',
-                                        letterSpacing: '0.12em',
-                                        textTransform: 'uppercase',
-                                    }}
+                                    key={text}
+                                    className="rounded-full bg-[#7FA8BC]/85 px-5 py-3 text-center text-xs uppercase tracking-[0.14em] text-white"
+                                    style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
                                 >
                                     {text}
                                 </div>
                             ))}
                         </div>
+                    </div>
+                </div>
+            </section>
 
-                        {/* LINK */}
-                        <a
-                            href={portfolioAlbumUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="mt-8 inline-flex items-center gap-2 text-[#6D99AF] transition-opacity hover:opacity-80"
-                            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
+            {/* MENU PROJETOS */}
+            <section id="projetos" className="relative overflow-hidden bg-white px-5 py-20 sm:px-8 lg:px-14 lg:py-28">
+                <div className="absolute bottom-0 right-0 h-[38%] w-[42%] rounded-tl-[54px] bg-[#E8E0D4]" />
+
+                <div className="relative z-10 mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-center">
+                    <div>
+                        <div
+                            className="mb-6 text-xs uppercase tracking-[0.38em] text-[#7FA8BC]"
+                            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
                         >
-                            Ver coleção no ArtStation <span>↗</span>
-                        </a>
-
-                    </div>
-                </div>
-            </section>
-
-
-            {/* MENU PORTFÓLIO */}
-            <section className="relative min-h-[297mm] w-[210mm] mx-auto overflow-hidden break-after-page print:break-after-page bg-white">
-                <div className="absolute top-0 left-0 h-full w-[34%] bg-[#F4F0E8]" />
-                <div className="absolute bottom-0 right-0 h-[34%] w-[38%] rounded-tl-[48px] bg-[#E8E0D4]" />
-
-                <div className="relative z-10 flex min-h-[297mm] items-center px-14">
-                    <div className="grid w-full grid-cols-[0.8fr_1.2fr] gap-14 items-center">
-                        <div>
-                            <div
-                                className="mb-6 text-sm uppercase tracking-[0.38em] text-[#7FA8BC]"
-                                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
-                            >
-                                Menu do portfólio
-                            </div>
-
-                            <h2
-                                className="text-[4.5rem] leading-[0.92] text-[#222]"
-                                style={{ fontFamily: 'Crimson Text, serif', fontWeight: 700 }}
-                            >
-                                Projetos
-                                <br />
-                                selecionados
-                            </h2>
-
-                            <div className="mt-10 h-[2px] w-20 bg-[#7FA8BC]/40" />
-
-                            <p
-                                className="mt-8 text-[1.05rem] leading-[1.75] text-[#5F5F5F]"
-                                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300 }}
-                            >
-                                Clique em um projeto para acessar diretamente sua página, visualizar imagens
-                                e abrir os links de apresentação.
-                            </p>
+                            Menu do portfólio
                         </div>
 
-                        <div className="rounded-b-[30px] bg-[#F4F0E8] p-10 shadow-[0_10px_30px_rgba(0,0,0,0.06)]">
-                            <div className="flex flex-col gap-4">
-                                {projects.map((project, index) => (
-                                    <a
-                                        key={project.id}
-                                        href={`#${project.id}`}
-                                        className="group flex items-center justify-between rounded-full bg-[#7FA8BC]/80 px-7 py-4 text-white transition-all duration-300 hover:bg-[#7FA8BC] hover:translate-x-1"
-                                        style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
-                                    >
-                                        <span className="text-sm uppercase tracking-[0.15em]">
-                                            {(index + 1 < 9 ? '0' : '') + String(index + 1)} — {project.shortTitle}
-                                        </span>
-                                        <span className="text-xl leading-none transition-transform duration-300 group-hover:translate-x-1">
-                                            ↓
-                                        </span>
-                                    </a>
-                                ))}
-                            </div>
+                        <h2
+                            className="text-[3.5rem] leading-[0.94] text-[#222] sm:text-[5rem]"
+                            style={{ fontFamily: 'Crimson Text, serif', fontWeight: 700 }}
+                        >
+                            Projetos
+                            <br />
+                            selecionados
+                        </h2>
 
-                            <a
-                                href={portfolioAlbumUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="mt-10 inline-flex items-center gap-2 text-[#6D99AF] transition-opacity hover:opacity-80"
-                                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
-                            >
-                                Ver álbum completo no ArtStation <span className="text-base leading-none">↗</span>
-                            </a>
+                        <p
+                            className="mt-8 max-w-xl text-lg leading-[1.8] text-[#5F5F5F]"
+                            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300 }}
+                        >
+                            Navegue pelos projetos e explore imagens, vídeos e links completos de apresentação.
+                        </p>
+                    </div>
+
+                    <div className="rounded-b-[30px] bg-[#F4F0E8] p-6 shadow-[0_10px_30px_rgba(0,0,0,0.06)] sm:p-10">
+                        <div className="grid gap-4">
+                            {projects.map((project, index) => (
+                                <a
+                                    key={project.id}
+                                    href={`#${project.id}`}
+                                    className="group flex items-center justify-between rounded-full bg-[#7FA8BC]/82 px-5 py-4 text-white transition-all duration-300 hover:bg-[#7FA8BC] hover:translate-x-1 sm:px-7"
+                                    style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
+                                >
+                                    <span className="text-xs uppercase tracking-[0.12em] sm:text-sm">
+                                        {(index + 1 < 9 ? '0' : '') + String(index + 1)} — {project.shortTitle}
+                                    </span>
+                                    <span className="text-xl leading-none transition-transform duration-300 group-hover:translate-x-1">
+                                        ↓
+                                    </span>
+                                </a>
+                            ))}
                         </div>
                     </div>
                 </div>
             </section>
-
 
             {/* PROJETOS */}
-            {projects.map((project, index) => {
-                const isBlue = project.pageTone === 'blue';
-                const isWarm = project.pageTone === 'warm';
-
-                const wrapperBg = isBlue ? 'bg-[#7FA8BC]' : isWarm ? 'bg-[#F4F0E8]' : 'bg-white';
-                const textCardBg = isBlue ? 'bg-white/95' : 'bg-[#F8F5EF]';
-                const highlightCardBg = isBlue ? 'bg-white/14' : 'bg-[#EAE3D7]';
-                const highlightText = isBlue ? 'text-white' : 'text-[#4F4F4F]';
-                const highlightSmall = isBlue ? 'text-white/80' : 'text-[#7FA8BC]';
-                const pierMark = isBlue ? 'text-white/25' : 'text-[#7FA8BC]/25';
-                const topRight = isBlue ? 'text-white/80' : 'text-[#7B8790]';
-
-                return (
-                    <section
-                        id={project.id}
-                        key={project.id}
-                        className={`relative min-h-[297mm] w-[210mm] mx-auto overflow-hidden break-after-page print:break-after-page scroll-mt-6 ${wrapperBg}`}
-                    >
-                        <div className="h-full w-full px-10 py-10">
-                            <div className="grid h-full grid-rows-[auto_1fr] gap-8">
-                                <div className="flex items-center justify-between">
-                                    <div className="inline-flex items-center rounded-full bg-[#7FA8BC] px-6 py-2.5">
+            <div className="bg-[#ECE7DF]">
+                {projects.map((project, index) => {
+                    const isEven = index % 2 === 0;
+                    return (
+                        <section
+                            id={project.id}
+                            key={project.id}
+                            className={`scroll-mt-24 px-5 py-20 sm:px-8 lg:px-14 lg:py-28 ${isEven ? 'bg-[#F4F0E8]' : 'bg-white'
+                                }`}
+                        >
+                            <div className="mx-auto max-w-7xl">
+                                <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                                    <div className="inline-flex w-fit items-center rounded-full bg-[#7FA8BC] px-5 py-2.5">
                                         <span
-                                            className="text-white text-sm tracking-[0.18em] uppercase"
-                                            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
+                                            className="text-xs uppercase tracking-[0.18em] text-white"
+                                            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
                                         >
                                             {project.type}
                                         </span>
                                     </div>
 
                                     <div
-                                        className={`text-sm tracking-[0.3em] uppercase ${topRight}`}
-                                        style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
+                                        className="text-xs uppercase tracking-[0.3em] text-[#7B8790]"
+                                        style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
                                     >
                                         Projeto {(index + 1 < 9 ? '0' : '') + String(index + 1)}
                                     </div>
                                 </div>
 
-                                <div className="grid h-full grid-rows-[0.92fr_1.08fr] gap-8">
+                                <div className="grid gap-8 lg:grid-cols-[1.18fr_0.82fr] lg:items-start">
                                     <ProjectCarousel images={project.images} title={project.title} />
 
-                                    <div className="grid grid-cols-[1.05fr_0.95fr] gap-8">
-                                        <div
-                                            className={`rounded-[30px] ${textCardBg} p-10 shadow-[0_12px_40px_rgba(0,0,0,0.08)]`}
-                                        >
+                                    <div className="grid gap-6">
+                                        <div className="rounded-[30px] bg-white p-7 shadow-[0_12px_36px_rgba(0,0,0,0.08)] sm:p-10">
                                             <div
                                                 className="mb-4 text-xs uppercase tracking-[0.26em] text-[#7FA8BC]"
-                                                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
+                                                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
                                             >
                                                 {project.client}
                                             </div>
 
-                                            <h2
-                                                className="mb-6 text-[2.15rem] leading-[1.1] text-[#222222]"
+                                            <h3
+                                                className="text-[2.4rem] leading-[1.02] text-[#222] sm:text-[3.2rem]"
                                                 style={{ fontFamily: 'Crimson Text, serif', fontWeight: 600 }}
                                             >
                                                 {project.title}
-                                            </h2>
+                                            </h3>
 
                                             <div
-                                                className="space-y-4 text-[0.93rem] leading-[1.68] text-[#555]"
+                                                className="mt-7 grid gap-4 text-[0.98rem] leading-[1.75] text-[#555] sm:text-base"
                                                 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300 }}
                                             >
                                                 {project.description.map((paragraph) => (
@@ -524,8 +488,8 @@ export default function App() {
                                                     href={project.artstation}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="inline-flex items-center rounded-full bg-[#7FA8BC]/85 px-5 py-2.5 text-white transition-all duration-300 hover:bg-[#7FA8BC]"
-                                                    style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600, fontSize: '0.82rem' }}
+                                                    className="inline-flex items-center rounded-full bg-[#7FA8BC]/90 px-5 py-3 text-sm text-white transition-all duration-300 hover:bg-[#7FA8BC]"
+                                                    style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
                                                 >
                                                     ArtStation <span className="ml-2">↗</span>
                                                 </a>
@@ -536,240 +500,203 @@ export default function App() {
                                                         href={video}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="inline-flex items-center rounded-full bg-white px-5 py-2.5 text-[#6D99AF] transition-all duration-300 hover:bg-[#F4F0E8]"
-                                                        style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600, fontSize: '0.82rem' }}
+                                                        className="inline-flex items-center rounded-full bg-[#F4F0E8] px-5 py-3 text-sm text-[#6D99AF] transition-all duration-300 hover:bg-[#E8E0D4]"
+                                                        style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
                                                     >
-                                                        Vídeo {project.videos.length > 1 ? videoIndex + 1 : ''} <span className="ml-2">↗</span>
+                                                        Vídeo {project.videos.length > 1 ? videoIndex + 1 : ''}{' '}
+                                                        <span className="ml-2">↗</span>
                                                     </a>
                                                 ))}
                                             </div>
                                         </div>
 
-                                        <div
-                                            className={`rounded-[30px] ${highlightCardBg} p-10 shadow-[0_12px_40px_rgba(0,0,0,0.05)]`}
-                                        >
-                                            <div className="flex h-full flex-col justify-between">
-                                                <div>
-                                                    <div
-                                                        className={`mb-4 text-sm uppercase tracking-[0.25em] ${highlightSmall}`}
-                                                        style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
-                                                    >
-                                                        Destaques
-                                                    </div>
+                                        <div className="rounded-[30px] bg-[#7FA8BC] p-7 shadow-[0_12px_36px_rgba(0,0,0,0.06)] sm:p-9">
+                                            <div
+                                                className="mb-5 text-xs uppercase tracking-[0.25em] text-white/82"
+                                                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
+                                            >
+                                                Destaques
+                                            </div>
 
-                                                    <div
-                                                        className={`space-y-5 text-[1rem] leading-[1.7] ${highlightText}`}
-                                                        style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300 }}
-                                                    >
-                                                        {project.highlights.map((highlight) => (
-                                                            <p key={highlight}>{highlight}</p>
-                                                        ))}
+                                            <div
+                                                className="grid gap-4 text-base leading-[1.65] text-white"
+                                                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300 }}
+                                            >
+                                                {project.highlights.map((highlight) => (
+                                                    <div key={highlight} className="rounded-full bg-white/12 px-5 py-3">
+                                                        {highlight}
                                                     </div>
-                                                </div>
-
-                                                <div
-                                                    className={`pt-8 text-[2.8rem] leading-none ${pierMark}`}
-                                                    style={{ fontFamily: 'Crimson Text, serif', fontStyle: 'italic' }}
-                                                >
-                                                    pier
-                                                </div>
+                                                ))}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </section>
+                    );
+                })}
+            </div>
+
+            {/* DIFERENCIAIS */}
+            <section id="diferenciais" className="relative overflow-hidden bg-[#7FA8BC] px-5 py-20 sm:px-8 lg:px-14 lg:py-28">
+                <div className="absolute bottom-0 left-0 h-[28%] w-[48%] rounded-tr-[54px] bg-[#D9CFC0]/28" />
+
+                <div className="relative z-10 mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.92fr_1.08fr] lg:items-center">
+                    <div className="relative min-h-[420px] overflow-hidden rounded-b-[34px] rounded-tl-[34px] shadow-[0_18px_50px_rgba(0,0,0,0.12)] lg:min-h-[700px]">
+                        <ImageWithFallback
+                            src="https://images.unsplash.com/photo-1497366412874-3415097a27e7?auto=format&fit=crop&w=1600&q=80"
+                            alt="Planejamento"
+                            className="h-full w-full object-cover"
+                        />
+                    </div>
+
+                    <div>
+                        <div
+                            className="mb-6 text-xs uppercase tracking-[0.38em] text-white/85"
+                            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
+                        >
+                            Por que utilizar 3D?
                         </div>
-                    </section>
-                );
-            })}
 
-            {/* DIFERENCIAL */}
-            <section className="relative min-h-[297mm] w-[210mm] mx-auto overflow-hidden break-after-page print:break-after-page bg-[#7FA8BC]">
-             
-              
+                        <h2
+                            className="text-[3.6rem] leading-[0.96] text-white sm:text-[5rem]"
+                            style={{ fontFamily: 'Crimson Text, serif', fontWeight: 600 }}
+                        >
+                            Clareza visual
+                            <br />
+                            gera decisão.
+                        </h2>
 
-                {/* bloco suave inferior */}
-                <div className="absolute bottom-0 left-0 h-[26%] w-[42%] rounded-tr-[48px] bg-[#D9CFC0]/35" />
+                        <p
+                            className="mt-9 max-w-xl text-lg leading-[1.85] text-white/90"
+                            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300 }}
+                        >
+                            Experiências 3D tornam a apresentação mais clara, reduzem dúvidas e ajudam o cliente
+                            a compreender proporções, materiais e possibilidades antes da execução.
+                        </p>
 
-                <div className="relative z-10 flex min-h-[297mm] items-center px-12 py-12">
-                    <div className="grid w-full grid-cols-[0.95fr_1.05fr] gap-12 items-center">
-
-                        {/* imagem */}
-                        <div className="relative h-[700px] overflow-hidden rounded-b-[34px] rounded-tl-[34px] shadow-[0_18px_50px_rgba(0,0,0,0.12)]">
-                            <ImageWithFallback
-                                src="https://images.unsplash.com/photo-1497366412874-3415097a27e7?auto=format&fit=crop&w=1600&q=80"
-                                alt="Planejamento"
-                                className="h-full w-full object-cover"
-                            />
-                        </div>
-
-                        {/* conteúdo */}
-                        <div className="relative">
-                            <div
-                                className="mb-6 text-sm uppercase tracking-[0.38em] text-white/85"
-                                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
-                            >
-                                Por que utilizar 3D?
-                            </div>
-
-                            <h2
-                                className="text-[4.1rem] leading-[0.96] text-white"
-                                style={{ fontFamily: 'Crimson Text, serif', fontWeight: 600 }}
-                            >
-                                Clareza visual
-                                <br />
-                                gera decisão.
-                            </h2>
-
-                            <div className="mt-10 h-px w-24 bg-white/45" />
-
-                            <p
-                                className="mt-9 max-w-[430px] text-[1.1rem] leading-[1.85] text-white/90"
-                                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300 }}
-                            >
-                                Experiências 3D tornam a apresentação mais clara, reduzem dúvidas e ajudam o cliente
-                                a compreender proporções, materiais e possibilidades antes da execução.
-                            </p>
-
-                            <div className="mt-12 grid grid-cols-1 gap-4">
-                                {[
-                                    'Visualização realista antes da execução',
-                                    'Redução de dúvidas e retrabalho',
-                                    'Apresentação mais profissional',
-                                    'Maior engajamento do cliente',
-                                    'Facilidade na tomada de decisão',
-                                ].map((item, index) => (
+                        <div className="mt-10 grid gap-4">
+                            {[
+                                'Visualização realista antes da execução',
+                                'Redução de dúvidas e retrabalho',
+                                'Apresentação mais profissional',
+                                'Maior engajamento do cliente',
+                                'Facilidade na tomada de decisão',
+                            ].map((item, index) => (
+                                <div
+                                    key={item}
+                                    className="flex items-center gap-4 rounded-full bg-white/12 px-5 py-3 text-white backdrop-blur-sm"
+                                >
                                     <div
-                                        key={item}
-                                        className="flex items-center gap-4 rounded-full bg-white/14 px-5 py-3 text-white backdrop-blur-sm"
+                                        className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full bg-white/20 text-sm text-white"
+                                        style={{ fontFamily: 'Crimson Text, serif', fontWeight: 700 }}
                                     >
-                                        <div
-                                            className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-white/20 text-sm text-white"
-                                            style={{ fontFamily: 'Crimson Text, serif', fontWeight: 700 }}
-                                        >
-                                            {index + 1}
-                                        </div>
-
-                                        <p
-                                            className="text-[0.95rem] leading-[1.45] text-white"
-                                            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300 }}
-                                        >
-                                            {item}
-                                        </p>
+                                        {index + 1}
                                     </div>
-                                ))}
-                            </div>
 
-                            <div
-                                className="absolute -right-8 bottom-[-80px] text-[5rem] leading-none text-white/12"
-                                style={{
-                                    fontFamily: 'Crimson Text, serif',
-                                    fontStyle: 'italic',
-                                }}
-                            >
-                                pier
-                            </div>
+                                    <p
+                                        className="text-[0.95rem] leading-[1.45] text-white sm:text-base"
+                                        style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300 }}
+                                    >
+                                        {item}
+                                    </p>
+                                </div>
+                            ))}
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* CONTATO */}
-            <section className="relative min-h-[297mm] w-[210mm] mx-auto overflow-hidden bg-[#F4F0E8]">
-                <div className="absolute top-0 right-0 h-full w-[24%] bg-[#E8E0D4]" />
-                <div className="absolute bottom-0 left-0 h-[20%] w-[30%] bg-[#D8CDBE]/40 rounded-tr-[40px]" />
+            <section id="contato" className="relative overflow-hidden bg-[#F4F0E8] px-5 py-20 sm:px-8 lg:px-14 lg:py-28">
+                <div className="absolute right-0 top-0 h-full w-[28%] bg-[#E8E0D4]" />
+                <div className="absolute bottom-0 left-0 h-[22%] w-[34%] rounded-tr-[48px] bg-[#D8CDBE]/40" />
 
-                <div className="relative z-10 flex h-full items-center justify-center px-14 py-12">
-                    <div className="w-full max-w-5xl rounded-[38px] bg-white px-16 py-16 text-center shadow-[0_18px_45px_rgba(0,0,0,0.07)]">
-                        <div
-                            className="mb-5 text-sm uppercase tracking-[0.4em] text-[#7FA8BC]"
-                            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
+                <div className="relative z-10 mx-auto max-w-5xl rounded-[38px] bg-white px-7 py-12 text-center shadow-[0_18px_45px_rgba(0,0,0,0.07)] sm:px-16 sm:py-16">
+                    <div
+                        className="mb-5 text-xs uppercase tracking-[0.4em] text-[#7FA8BC]"
+                        style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
+                    >
+                        Contato
+                    </div>
+
+                    <h2
+                        className="text-[3rem] leading-none text-[#222] sm:text-[4.5rem]"
+                        style={{ fontFamily: 'Crimson Text, serif', fontWeight: 600 }}
+                    >
+                        Vamos criar algo
+                        <br />
+                        memorável.
+                    </h2>
+
+                    <p
+                        className="mx-auto mt-8 max-w-3xl text-lg leading-[1.8] text-[#555]"
+                        style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300 }}
+                    >
+                        Transformamos seu projeto em uma experiência visual imersiva, pensada para comunicar
+                        melhor, envolver mais e apresentar com mais valor.
+                    </p>
+
+                    <div className="mx-auto mt-12 h-px w-24 bg-[#7FA8BC]/45" />
+
+                    <div className="mt-12 grid gap-6 text-left sm:grid-cols-2">
+                        <a
+                            href={pierInstagramUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block"
                         >
-                            Contato
-                        </div>
+                            <div className="h-full rounded-[26px] bg-[#F8F5EF] p-8 transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_12px_28px_rgba(0,0,0,0.08)]">
+                                <div
+                                    className="mb-5 text-sm uppercase tracking-[0.28em] text-[#7B8790]"
+                                    style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
+                                >
+                                    Estúdio de criação
+                                </div>
 
-                        <h2
-                            className="text-[4rem] leading-none text-[#222]"
-                            style={{ fontFamily: 'Crimson Text, serif', fontWeight: 600 }}
-                        >
-                            Vamos criar algo
-                            <br />
-                            memorável.
-                        </h2>
+                                <img src="/logopier.png?v=5" alt="Pier" className="w-[145px]" />
 
-                        <p
-                            className="mx-auto mt-8 max-w-3xl text-[1.2rem] leading-[1.8] text-[#555]"
-                            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300 }}
-                        >
-                            Transformamos seu projeto em uma experiência visual imersiva, pensada para comunicar
-                            melhor, envolver mais e apresentar com mais valor.
-                        </p>
+                                <div
+                                    className="mt-7 text-xs uppercase tracking-[0.24em] text-[#7FA8BC]"
+                                    style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
+                                >
+                                    Instagram <span className="text-base leading-none">↗</span>
+                                </div>
+                            </div>
+                        </a>
 
-                        <div className="mx-auto mt-14 h-px w-24 bg-[#7FA8BC]/45" />
+                        <div className="rounded-[26px] bg-[#F8F5EF] p-8 transition-all duration-300 hover:shadow-[0_12px_28px_rgba(0,0,0,0.05)]">
+                            <div
+                                className="mb-2 text-sm uppercase tracking-[0.28em] text-[#7B8790]"
+                                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
+                            >
+                                Modelagem 3D
+                            </div>
 
-                        <div className="mt-14 grid grid-cols-2 gap-10 text-left">
+                            <div
+                                className="text-[3rem] leading-none text-[#222]"
+                                style={{ fontFamily: 'Crimson Text, serif', fontWeight: 600 }}
+                            >
+                                Caique Santos
+                            </div>
+
                             <a
-                                href="https://www.instagram.com/pierstudiocriativo/"
+                                href="https://www.artstation.com/caisantos"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="block"
+                                className="mt-6 inline-flex items-center gap-2 text-[#6D99AF] transition-opacity hover:opacity-80"
+                                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
                             >
-                                <div className="rounded-[26px] bg-[#F8F5EF] p-8 transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_12px_28px_rgba(0,0,0,0.08)]">
-                                    <div
-                                        className="mb-3 text-sm uppercase tracking-[0.28em] text-[#7B8790]"
-                                        style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
-                                    >
-                                        Estúdio de criação
-                                    </div>
-
-                                    <img
-                                        src="/logopier.png"
-                                        alt="Pier"
-                                        className="w-[145px]"
-                                    />
-
-                                    <div
-                                        className="mt-6 text-xs uppercase tracking-[0.24em] text-[#7FA8BC]"
-                                        style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
-                                    >
-                                        Instagram <span className="text-base leading-none">↗</span>
-                                    </div>
-                                </div>
+                                artstation.com/caisantos <span className="text-base leading-none">↗</span>
                             </a>
-
-                            <div className="rounded-[26px] bg-[#F8F5EF] p-8 transition-all duration-300 hover:shadow-[0_12px_28px_rgba(0,0,0,0.05)]">
-                                <div
-                                    className="mb-2 text-sm uppercase tracking-[0.28em] text-[#7B8790]"
-                                    style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
-                                >
-                                    Modelagem 3D
-                                </div>
-
-                                <div
-                                    className="text-[3rem] leading-none text-[#222]"
-                                    style={{ fontFamily: 'Crimson Text, serif', fontWeight: 600 }}
-                                >
-                                    Caique Santos
-                                </div>
-
-                                <a
-                                    href="https://www.artstation.com/caisantos"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="mt-6 inline-flex items-center gap-2 text-[#6D99AF] transition-opacity hover:opacity-80"
-                                    style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
-                                >
-                                    artstation.com/caisantos <span className="text-base leading-none">↗</span>
-                                </a>
-                            </div>
                         </div>
+                    </div>
 
-                        <div
-                            className="mt-16 text-xs uppercase tracking-[0.35em] text-[#9A9A9A]"
-                            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
-                        >
-                            © 2026 Pier × Caique Santos
-                        </div>
+                    <div
+                        className="mt-14 text-xs uppercase tracking-[0.35em] text-[#9A9A9A]"
+                        style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500 }}
+                    >
+                        © 2026 Pier × Caique Santos
                     </div>
                 </div>
             </section>
