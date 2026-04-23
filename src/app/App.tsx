@@ -284,31 +284,40 @@ export default function App() {
                         </div>
                     </div>
 
-                    <div className="relative mx-auto flex w-full max-w-[520px] flex-col items-center text-center lg:mt-10">
-                        <a href={pierInstagramUrl} target="_blank" rel="noopener noreferrer" className="transition hover:scale-[1.03]">
-                            <img src="/logopier.png?v=5" alt="Pier" className="mx-auto w-[210px] sm:w-[260px]" />
-                        </a>
+                    <div className="relative mx-auto flex w-full max-w-[520px] items-center justify-center gap-6 lg:mt-10">
 
+                        {/* PIER */}
+                        <img
+                            src="/logopier.png?v=5"
+                            alt="Pier"
+                            className="w-[120px] sm:w-[150px] brightness-0 invert"
+                        />
+
+                        {/* X */}
                         <div
-                            className="mt-5 text-[1.35rem] leading-none text-white/85"
+                            className="text-[1.8rem] text-white/80"
                             style={{ fontFamily: 'Crimson Text, serif', fontWeight: 600 }}
                         >
                             ×
                         </div>
 
-                        <div
-                            className="mt-2 text-[2.4rem] leading-none text-white sm:text-[3rem]"
-                            style={{ fontFamily: 'Crimson Text, serif', fontWeight: 600 }}
-                        >
-                            Caique Santos
+                        {/* CAIQUE */}
+                        <div className="text-left">
+                            <div
+                                className="text-[2rem] leading-none text-[#6D99AF] sm:text-[2.4rem]"
+                                style={{ fontFamily: 'Crimson Text, serif', fontWeight: 600 }}
+                            >
+                                Caique Santos
+                            </div>
+
+                            <div
+                                className="mt-2 text-[0.7rem] uppercase tracking-[0.35em] text-[#6D99AF]/80"
+                                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
+                            >
+                                Modelagem 3D
+                            </div>
                         </div>
 
-                        <div
-                            className="mt-4 text-xs uppercase tracking-[0.45em] text-white/80"
-                            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
-                        >
-                            Modelagem 3D
-                        </div>
                     </div>
                 </div>
             </section>
@@ -639,25 +648,33 @@ export default function App() {
 
                     <div className="mx-auto mt-12 h-px w-24 bg-[#7FA8BC]/45" />
 
+                    {/* CARDS */}
                     <div className="mt-12 grid gap-6 text-left sm:grid-cols-2">
+
+                        {/* PIER */}
                         <a
                             href={pierInstagramUrl}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="block"
                         >
-                            <div className="h-full rounded-[26px] bg-[#F8F5EF] p-8 transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_12px_28px_rgba(0,0,0,0.08)]">
+                            <div className="flex h-full min-h-[300px] flex-col justify-between rounded-[26px] bg-[#F8F5EF] p-8 transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_12px_28px_rgba(0,0,0,0.08)]">
+
                                 <div
-                                    className="mb-5 text-sm uppercase tracking-[0.28em] text-[#7B8790]"
+                                    className="text-sm uppercase tracking-[0.28em] text-[#7B8790]"
                                     style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
                                 >
                                     Estúdio de criação
                                 </div>
 
-                                <img src="/logopier.png?v=5" alt="Pier" className="w-[145px]" />
+                                <img
+                                    src="/logopier.png?v=5"
+                                    alt="Pier"
+                                    className="w-[145px] brightness-0"
+                                />
 
                                 <div
-                                    className="mt-7 text-xs uppercase tracking-[0.24em] text-[#7FA8BC]"
+                                    className="text-xs uppercase tracking-[0.24em] text-[#7FA8BC]"
                                     style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
                                 >
                                     Instagram <span className="text-base leading-none">↗</span>
@@ -665,31 +682,38 @@ export default function App() {
                             </div>
                         </a>
 
-                        <div className="rounded-[26px] bg-[#F8F5EF] p-8 transition-all duration-300 hover:shadow-[0_12px_28px_rgba(0,0,0,0.05)]">
-                            <div
-                                className="mb-2 text-sm uppercase tracking-[0.28em] text-[#7B8790]"
-                                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
-                            >
-                                Modelagem 3D
-                            </div>
+                        {/* CAIQUE */}
+                        <a
+                            href="https://www.artstation.com/caisantos"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block"
+                        >
+                            <div className="flex h-full min-h-[300px] flex-col justify-between rounded-[26px] bg-[#F8F5EF] p-8 transition-all duration-300 hover:-translate-y-[2px] hover:shadow-[0_12px_28px_rgba(0,0,0,0.08)]">
 
-                            <div
-                                className="text-[3rem] leading-none text-[#222]"
-                                style={{ fontFamily: 'Crimson Text, serif', fontWeight: 600 }}
-                            >
-                                Caique Santos
-                            </div>
+                                <div
+                                    className="text-sm uppercase tracking-[0.28em] text-[#7B8790]"
+                                    style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
+                                >
+                                    Modelagem 3D
+                                </div>
 
-                            <a
-                                href="https://www.artstation.com/caisantos"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="mt-6 inline-flex items-center gap-2 text-[#6D99AF] transition-opacity hover:opacity-80"
-                                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
-                            >
-                                artstation.com/caisantos <span className="text-base leading-none">↗</span>
-                            </a>
-                        </div>
+                                <div
+                                    className="text-[3rem] leading-none text-[#222]"
+                                    style={{ fontFamily: 'Crimson Text, serif', fontWeight: 600 }}
+                                >
+                                    Caique Santos
+                                </div>
+
+                                <div
+                                    className="text-xs uppercase tracking-[0.24em] text-[#7FA8BC]"
+                                    style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
+                                >
+                                    ArtStation <span className="text-base leading-none">↗</span>
+                                </div>
+                            </div>
+                        </a>
+
                     </div>
 
                     <div
