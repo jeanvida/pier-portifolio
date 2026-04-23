@@ -284,7 +284,7 @@ export default function App() {
                         </div>
                     </div>
 
-                    <div className="relative mx-auto grid w-full max-w-[760px] grid-cols-2 items-center lg:mt-10">
+                    <div className="relative mx-auto grid w-full max-w-[760px] grid-cols-2 items-center lg:mt-10 animate-[collabSlide_900ms_ease-out_both]">
                         {/* PIER / lado azul */}
                         <div className="flex justify-center pr-8">
                             <img
@@ -294,12 +294,29 @@ export default function App() {
                             />
                         </div>
 
-                        {/* X / centro da divisão */}
-                        <div
-                            className="absolute left-1/2 top-1/2 z-10 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-white/15 text-[2rem] leading-none text-white shadow-[0_12px_28px_rgba(0,0,0,0.12)] backdrop-blur-sm"
-                            style={{ fontFamily: 'Crimson Text, serif', fontWeight: 600 }}
-                        >
-                            ×
+                        {/* X central estilizado */}
+                        <div className="pointer-events-none absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2">
+                            <span
+                                className="absolute inset-0 text-[4rem] leading-none text-white sm:text-[5rem]"
+                                style={{
+                                    fontFamily: 'Crimson Text, serif',
+                                    fontWeight: 700,
+                                    clipPath: 'inset(0 50% 0 0)',
+                                }}
+                            >
+                                ×
+                            </span>
+
+                            <span
+                                className="text-[4rem] leading-none text-[#6D99AF] sm:text-[5rem]"
+                                style={{
+                                    fontFamily: 'Crimson Text, serif',
+                                    fontWeight: 700,
+                                    clipPath: 'inset(0 0 0 50%)',
+                                }}
+                            >
+                                ×
+                            </span>
                         </div>
 
                         {/* CAIQUE / lado bege */}
