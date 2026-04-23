@@ -231,79 +231,73 @@ export default function App() {
 
             {/* HERO */}
             <section className="relative min-h-screen overflow-hidden bg-[#7FA8BC]" id="topo">
-                {/* fundo 50/50 fixo */}
-                <div className="absolute inset-y-0 left-0 w-1/2 bg-[#7FA8BC]" />
-                <div className="absolute inset-y-0 right-0 w-1/2 bg-[#EDE6DA]" />
+                {/* fundo desktop: 75% azul / 25% bege */}
+                <div className="absolute inset-y-0 left-0 hidden w-[75%] bg-[#7FA8BC] md:block" />
+                <div className="absolute inset-y-0 right-0 hidden w-[25%] bg-[#EDE6DA] md:block" />
 
-                {/* mobile: fundo azul inteiro para não quebrar */}
+                {/* fundo mobile */}
                 <div className="absolute inset-0 bg-[#7FA8BC] md:hidden" />
 
                 {/* bloco decorativo */}
                 <div className="absolute bottom-0 left-0 h-[24%] w-[55%] rounded-tr-[54px] bg-[#D9CFC0]/35 sm:w-[38%]" />
 
-                {/* conteúdo principal */}
-                <div className="relative z-10 flex min-h-screen flex-col px-5 pt-24 sm:px-8 lg:px-14">
-                    <div className="mx-auto grid w-full max-w-7xl flex-1 items-center gap-14 py-16 lg:grid-cols-[1.05fr_0.95fr]">
-
-                        {/* texto */}
-                        <div className="max-w-3xl">
-                            <div
-                                className="mb-7 text-xs uppercase tracking-[0.45em] text-white/80"
-                                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
-                            >
-                                Portfólio 3D
-                            </div>
-
-                            <h1
-                                className="text-[4rem] leading-[0.92] text-white sm:text-[5.8rem] lg:text-[7rem]"
-                                style={{ fontFamily: 'Crimson Text, serif', fontWeight: 600 }}
-                            >
-                                Experiências
-                                <br />
-                                visuais
-                                <br />
-                                imersivas
-                            </h1>
-
-                            <div className="mt-9 h-px w-24 bg-white/45" />
-
-                            <p
-                                className="mt-9 max-w-2xl text-lg leading-[1.85] text-white/90 sm:text-xl"
-                                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300 }}
-                            >
-                                Apresentação de projetos, produtos e espaços com linguagem visual sofisticada,
-                                imersiva e estratégica.
-                            </p>
-
-                            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                                <a
-                                    href="#projetos"
-                                    className="rounded-full bg-white px-7 py-4 text-center text-sm uppercase tracking-[0.17em] text-[#6D99AF] shadow-[0_16px_34px_rgba(0,0,0,0.12)] transition hover:-translate-y-[2px]"
-                                    style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
-                                >
-                                    Ver projetos
-                                </a>
-
-                                <a
-                                    href={portfolioAlbumUrl}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="rounded-full border border-white/45 px-7 py-4 text-center text-sm uppercase tracking-[0.17em] text-white transition hover:bg-white/12"
-                                    style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
-                                >
-                                    ArtStation ↗
-                                </a>
-                            </div>
+                {/* conteúdo texto: preso nos primeiros 50% */}
+                <div className="relative z-10 flex min-h-screen items-center px-5 pt-24 sm:px-8 lg:px-14">
+                    <div className="w-full md:w-1/2">
+                        <div
+                            className="mb-7 text-xs uppercase tracking-[0.45em] text-white/80"
+                            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
+                        >
+                            Portfólio 3D
                         </div>
 
-                        {/* espaço visual no desktop */}
-                        <div className="hidden lg:block" />
+                        <h1
+                            className="text-[4rem] leading-[0.92] text-white sm:text-[5.8rem] lg:text-[6.5rem] xl:text-[7rem]"
+                            style={{ fontFamily: 'Crimson Text, serif', fontWeight: 600 }}
+                        >
+                            Experiências
+                            <br />
+                            visuais
+                            <br />
+                            imersivas
+                        </h1>
+
+                        <div className="mt-9 h-px w-24 bg-white/45" />
+
+                        <p
+                            className="mt-9 max-w-2xl text-lg leading-[1.85] text-white/90 sm:text-xl"
+                            style={{ fontFamily: 'Inter, sans-serif', fontWeight: 300 }}
+                        >
+                            Apresentação de projetos, produtos e espaços com linguagem visual sofisticada,
+                            imersiva e estratégica.
+                        </p>
+
+                        <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                            <a
+                                href="#projetos"
+                                className="rounded-full bg-white px-7 py-4 text-center text-sm uppercase tracking-[0.17em] text-[#6D99AF] shadow-[0_16px_34px_rgba(0,0,0,0.12)] transition hover:-translate-y-[2px]"
+                                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
+                            >
+                                Ver projetos
+                            </a>
+
+                            <a
+                                href={portfolioAlbumUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="rounded-full border border-white/45 px-7 py-4 text-center text-sm uppercase tracking-[0.17em] text-white transition hover:bg-white/12"
+                                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 700 }}
+                            >
+                                ArtStation ↗
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                {/* BLOCO COLLAB DESKTOP — preso no 50/50 real da section */}
-                <div className="pointer-events-none absolute inset-0 z-20 hidden md:block">
-                    <div className="absolute left-0 top-1/2 flex w-1/2 -translate-y-1/2 justify-end pr-[7vw] animate-[collabSlide_900ms_ease-out_both]">
+                {/* DESKTOP: Pier no bloco 50%-75%, Caique no bloco 75%-100% */}
+                <div className="pointer-events-none absolute inset-0 z-20 hidden md:block animate-[collabSlide_900ms_ease-out_both]">
+                    {/* Pier: coluna de 25% azul */}
+                    <div className="absolute left-1/2 top-1/2 flex w-1/4 -translate-y-1/2 justify-center">
                         <img
                             src="/logopier.png?v=5"
                             alt="Pier"
@@ -311,8 +305,9 @@ export default function App() {
                         />
                     </div>
 
+                    {/* X: fixado em 75% */}
                     <div
-                        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-[4.8rem] leading-none lg:text-[5.8rem] animate-[collabSlide_900ms_ease-out_both]"
+                        className="absolute left-[75%] top-1/2 -translate-x-1/2 -translate-y-1/2 text-[4.8rem] leading-none lg:text-[5.8rem]"
                         style={{
                             fontFamily: 'Crimson Text, serif',
                             fontWeight: 700,
@@ -325,10 +320,11 @@ export default function App() {
                         ×
                     </div>
 
-                    <div className="absolute right-0 top-1/2 flex w-1/2 -translate-y-1/2 justify-start pl-[7vw] animate-[collabSlide_900ms_ease-out_both]">
+                    {/* Caique: coluna de 25% bege */}
+                    <div className="absolute right-0 top-1/2 flex w-1/4 -translate-y-1/2 justify-center">
                         <div className="pointer-events-auto text-left">
                             <div
-                                className="text-[2.5rem] leading-none text-[#6D99AF] lg:text-[3.4rem] xl:text-[4.2rem]"
+                                className="text-[2.4rem] leading-none text-[#6D99AF] lg:text-[3.2rem] xl:text-[3.8rem]"
                                 style={{ fontFamily: 'Crimson Text, serif', fontWeight: 600 }}
                             >
                                 Caique
@@ -337,7 +333,7 @@ export default function App() {
                             </div>
 
                             <div
-                                className="mt-4 text-[0.72rem] uppercase tracking-[0.38em] text-[#6D99AF]/80 lg:text-[0.82rem]"
+                                className="mt-4 text-[0.68rem] uppercase tracking-[0.36em] text-[#6D99AF]/80 lg:text-[0.78rem]"
                                 style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
                             >
                                 Modelagem 3D
@@ -346,7 +342,7 @@ export default function App() {
                     </div>
                 </div>
 
-                {/* BLOCO COLLAB MOBILE */}
+                {/* MOBILE */}
                 <div className="relative z-20 mx-auto flex w-full max-w-sm flex-col items-center gap-4 px-5 pb-16 text-center md:hidden animate-[collabSlide_900ms_ease-out_both]">
                     <img
                         src="/logopier.png?v=5"
