@@ -284,40 +284,42 @@ export default function App() {
                         </div>
                     </div>
 
-                    <div className="relative mx-auto flex w-full max-w-[520px] items-center justify-center gap-6 lg:mt-10">
+                    <div className="relative mx-auto grid w-full max-w-[760px] grid-cols-2 items-center lg:mt-10">
+                        {/* PIER / lado azul */}
+                        <div className="flex justify-center pr-8">
+                            <img
+                                src="/logopier.png?v=5"
+                                alt="Pier"
+                                className="w-[130px] brightness-0 invert sm:w-[170px]"
+                            />
+                        </div>
 
-                        {/* PIER */}
-                        <img
-                            src="/logopier.png?v=5"
-                            alt="Pier"
-                            className="w-[120px] sm:w-[150px] brightness-0 invert"
-                        />
-
-                        {/* X */}
+                        {/* X / centro da divisão */}
                         <div
-                            className="text-[1.8rem] text-white/80"
+                            className="absolute left-1/2 top-1/2 z-10 flex h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-white/15 text-[2rem] leading-none text-white shadow-[0_12px_28px_rgba(0,0,0,0.12)] backdrop-blur-sm"
                             style={{ fontFamily: 'Crimson Text, serif', fontWeight: 600 }}
                         >
                             ×
                         </div>
 
-                        {/* CAIQUE */}
-                        <div className="text-left">
-                            <div
-                                className="text-[2rem] leading-none text-[#6D99AF] sm:text-[2.4rem]"
-                                style={{ fontFamily: 'Crimson Text, serif', fontWeight: 600 }}
-                            >
-                                Caique Santos
-                            </div>
+                        {/* CAIQUE / lado bege */}
+                        <div className="flex justify-center pl-8">
+                            <div className="text-left">
+                                <div
+                                    className="text-[2rem] leading-none text-[#6D99AF] sm:text-[2.7rem]"
+                                    style={{ fontFamily: 'Crimson Text, serif', fontWeight: 600 }}
+                                >
+                                    Caique Santos
+                                </div>
 
-                            <div
-                                className="mt-2 text-[0.7rem] uppercase tracking-[0.35em] text-[#6D99AF]/80"
-                                style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
-                            >
-                                Modelagem 3D
+                                <div
+                                    className="mt-3 text-[0.72rem] uppercase tracking-[0.38em] text-[#6D99AF]/80 sm:text-[0.78rem]"
+                                    style={{ fontFamily: 'Inter, sans-serif', fontWeight: 600 }}
+                                >
+                                    Modelagem 3D
+                                </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>
