@@ -737,7 +737,7 @@ export default function App() {
 
                         {/* CAIQUE */}
                         <a
-                            href="https://www.artstation.com/caisantos"
+                            href="https://www.artstation.com/caisantos/albums/14969340"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="block"
