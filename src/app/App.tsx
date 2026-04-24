@@ -640,10 +640,10 @@ export default function App() {
                         <div className="mt-10 grid gap-4">
                             {[
                                 'Visualização realista antes da execução',
-                                'Redução de dúvidas e retrabalho',
+                                'Experiências de Realidade Aumentada',
                                 'Apresentação mais profissional',
                                 'Maior engajamento do cliente',
-                                'Facilidade na tomada de decisão',
+                                'Experiências de Realidade Virtual',
                             ].map((item, index) => (
                                 <div
                                     key={item}
